@@ -15,13 +15,13 @@ client/node_modules
 client/.env
 client/.env.local
 client/.env.*.local
-.env
-.env.local
-.env.*.local
+server/.env
+server/.env.local
+server/.env.*.local
 
 # Build output
 client/dist/
-dist/
+server/dist/
 
 # Editor directories and files
 .vscode/*
