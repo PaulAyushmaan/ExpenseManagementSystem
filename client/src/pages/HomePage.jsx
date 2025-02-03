@@ -20,7 +20,6 @@ import Spinner from './Spinner';
 import axios from 'axios';
 import moment from 'moment';
 import Analytics from '../components/Analytics';
-import { set } from 'mongoose';
 const { RangePicker } = DatePicker;
 
 const HomePage = () => {
