@@ -14,7 +14,14 @@ connectDb();
 app.use('/api/v1/users', require('./src/routes/userRoute'));
 //transaction routes
 app.use('/api/v1/transactions', require('./src/routes/transactionRoutes'));
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`.yellow.bold);
-});
+app.get('/', (req, res) => {
+	res.send('API is running...');
+  });
+
+if (process.env.NODE_ENV !== 'vercel') {
+	const PORT = process.env.PORT || 5000;
+	app.listen(PORT, () => {
+	  console.log(`Server running on port ${PORT}`.yellow.bold);
+	});
+  }
+module.exports = app;
