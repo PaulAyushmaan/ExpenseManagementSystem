@@ -1,0 +1,48 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.content {
+	height: 80vh;
+}
+.register-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+/* Transaction page */
+.filters {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+.filtersBlock {
+	display: flex;
+	flex-direction: column;
+	padding: 10px, 20px;
+	gap: 1px;
+}
+.underline {
+	width: 100%;
+	height: 2px;
+	background-color: grey;
+	opacity: 0.5;
+}
+.angticon svg {
+	font-size: 20px;
+	cursor: pointer;
+}
+.active-icon {
+	color: black;
+}
+.inactive-icon {
+	color: grey;
+}
+.switch-icons {
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px 15px;
+}
