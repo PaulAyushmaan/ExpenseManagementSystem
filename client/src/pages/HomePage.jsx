@@ -41,8 +41,23 @@ const HomePage = () => {
 		.filter((transaction) => transaction.type === 'expense')
 		.reduce((acc, transaction) => acc + transaction.amount, 0);
 	const moneyRemain = totalIncomeTurnover - totalExpenseTurnover;
+	const [pagination, setPagination] = useState({
+		current: 1,
+		pageSize: 10,
+	  });
+	  
+	  const handleTableChange = (pagination) => {
+		setPagination(pagination);
+	  };
 	//table data
 	const columns = [
+		{
+			title: 'S.No',
+			dataIndex: 'key',
+			key: 'key',
+			render: (text, record, index) =>
+				(pagination.current - 1) * pagination.pageSize + index + 1,
+		  },
 		{
 			title: 'Date',
 			dataIndex: 'date',
@@ -178,6 +193,7 @@ const HomePage = () => {
 			console.log('hello');
 		}
 	};
+	
 	return (
 		<Layout>
 			{loading && <Spinner />}
@@ -248,7 +264,12 @@ const HomePage = () => {
 							</h5>
 							<h5 className="text-warning">Money Remaining: {moneyRemain}</h5>
 						</div>
-						<Table dataSource={allTransactions} columns={columns}></Table>
+						<Table
+      dataSource={allTransactions}
+      columns={columns}
+      pagination={pagination}
+      onChange={handleTableChange} // Updates pagination state
+    />
 					</div>
 				) : (
 					<Analytics allTransactions={allTransactions} />
