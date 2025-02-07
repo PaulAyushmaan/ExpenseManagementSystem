@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Input, message } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from './Spinner';
@@ -43,7 +44,12 @@ const Register = () => {
 						<Input />
 					</Form.Item>
 					<Form.Item label="Password" name="password" type="password">
-						<Input />
+						<Input.Password
+							placeholder="input password"
+							iconRender={(visible) =>
+								visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+							}
+						/>
 					</Form.Item>
 					<div className="d-flex flex-column gap-4 justify-content-between">
 						<button className="btn btn-primary">Register</button>
